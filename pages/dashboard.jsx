@@ -5,9 +5,12 @@ import Manager from "../components/Manager";
 
 function Dashboard() {
   const router = useRouter();
-  //console.log(router.query.type);
-  var data = router.query;
-  return <>{data?.type == "trainee" ? <Trainee /> : <Manager />}</>;
+  var response = router.query;
+
+  const data = JSON.parse(response.data);
+  // console.log("In DashBoard", obj.isTrainee);
+
+  return <>{data.isTrainee == true ? <Trainee /> : <Manager />}</>;
 }
 
 export default Dashboard;
