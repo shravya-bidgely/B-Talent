@@ -1,6 +1,12 @@
 {
     "shravya" : {
-        "sheetUrl": "Hh",
+        "sheetUrl": "https://docs.google.com/spreadsheets/d/1-7jcHAN9GvQ2aL3pCGtTOI2PWT-ys6bVeTEfuI5T1Vs/edit#gid=2000694853",
         "title": "shravya"
+    },
+    "sachin" : {
+        "sheetUrl" : "https://docs.google.com/spreadsheets/d/1GflaW1CHNAbKEYOeHgY83VDWLbvieQGIMX-0wQLAbuE/edit#gid=298075409",
+        "title" : "sachin"
     }
+
+
 }

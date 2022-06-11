@@ -1,6 +1,3 @@
-import mockData from "./../mockDb.json"
-
-
 export default function ShravyaScreen () {
     return (
         <div className="flex-col">
