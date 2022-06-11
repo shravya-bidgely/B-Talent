@@ -3,19 +3,20 @@ export default function ShravyaScreen () {
         <div className="flex-col">
             <div className="flex lg:flex-row flex-col">
                 <div className="flex-1 border-2 rounded text-5xl">
-                    cheeku
+                    Welcome to B-Talent
                 </div>
-                <div className="flex-1 border-2">
-                    chinta
-                </div>
-                <div className="flex-1 border-2">
-                    leni
+            </div>
+            <div className="flex lg:flex-row flex-col">
+                <div className="flex-1 border-2 rounded text-3xl">
+                    Login here: 
                 </div>
             </div>
             <div>
-                <label>enter name:</label>
-                <input className="border"/>
-                <a href="/">here</a>
+                <a href="/">New Joinee</a>
+            </div>
+            <div>
+            
+                <a href="/Trainer">Trainer</a>
             </div>
         </div>
     )
