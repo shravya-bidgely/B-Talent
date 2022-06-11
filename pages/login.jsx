@@ -9,32 +9,33 @@ function Login() {
     password: "",
   });
 
-  const loginUser = async (data, type) => {
-    // const res = await fetch(
-    //   type == "trainee"
-    //     ? "http://localhost:5000/api/session/"
-    //     : "http://localhost:5000/api/session2/",
-    //   {
-    //     method: "post",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify(data),
-    //   }
-    // );
-    const res = await fetch("https://randomuser.me/api");
+  const loginUser = async (data) => {
+    let email = data.email;
+    console.log("email", email);
 
+    let url = "http://localhost:8080/emp/login?email=" + email;
+    const config = {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    };
+    const res = await fetch(url, config);
     const response = await res.json();
+
     if (res.status == 200) {
       //   const { token } = response;
       //   localStorage.setItem("jwtToken", token);
-      let userData = { id: 1, type: "trainee" };
-      //   Router.push({
-      //     pathname: "/dashboard",
-      //     query: { data: JSON.stringify(userData) },
-      //   });
 
-      Router.push(`/dashboard?_id=${userData?.id}&type=${userData?.type}`);
+      console.log("In Login page: ", response);
+      Router.push({
+        pathname: "/dashboard",
+        query: { data: JSON.stringify(response) },
+      });
+
+      //Router.push(`/dashboard?_id=${response?.id}&type=${userData?.type}`);
     } else {
       console.log(response.msg);
     }
@@ -50,7 +51,7 @@ function Login() {
     let { email, password } = data;
     if (!email || !password) return console.error("All Fields are Required");
 
-    loginUser(data, e.target.name);
+    loginUser(data);
   };
 
   return (
@@ -86,15 +87,8 @@ function Login() {
           <input
             className="py-2 px-5 my-4 rounded-3xl bg-emerald-500 text-white max-w-max text-xl font-semibold cursor-pointer"
             type="submit"
-            value="Login As Manager"
+            value="Login"
             name="manager"
-          />
-
-          <input
-            className="py-2 px-5 my-4 rounded-3xl bg-emerald-500 text-white max-w-max text-xl font-semibold cursor-pointer"
-            type="submit"
-            value="Login As Trainee"
-            name="trainee"
           />
         </div>
       </form>
